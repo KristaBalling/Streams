@@ -16,14 +16,14 @@ public class Main {
 
         List<String> gNumbers = new ArrayList<>();
 
-        someBingoNumbers.forEach(number -> {
-            if(number.toUpperCase().startsWith("G")) {
-                gNumbers.add(number);
-//                System.out.println(number);
-            }
-        });
+//
+        someBingoNumbers
+                .stream()
+                .map(String::toUpperCase)
+                .filter (s -> s.startsWith("G"))
+                .sorted()
+                .forEach(System.out:: println);
 
-        gNumbers.sort((String s1, String s2) -> s1.compareTo(s2));
-        gNumbers.forEach((String s) -> System.out.println(s));
+
     }
 }
